@@ -1,15 +1,24 @@
+use std::fmt;
 
 #[derive(Debug)]
-struct Person<'a> {
-    name : &'a str,
-    age:u8
+struct Point2D {
+    real: f32,
+    imag:f32
 }
 
-fn main(){
+impl fmt::Display for Point2D {
+    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+        // Customize so only `x` and `y` are denoted.
+        write!(f, "{} + {}i", self.real, self.imag)
+    } 
+}
 
-    let name = "Mehrad";
-    let age = 26;
-    let mehrad = Person{name,age};
-    println!("{:?}",mehrad);
+fn main (){
+    let coor = Point2D {
+        real : 3.2,
+        imag : 78.2
+    };
 
+    println!("{}",coor);
+    println!("{:?}", coor);
 }
