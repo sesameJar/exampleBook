@@ -1,14 +1,15 @@
-#[derive(Debug)]
-struct Structure(i32);
 
 #[derive(Debug)]
-struct Deep(Structure);
+struct Person<'a> {
+    name : &'a str,
+    age:u8
+}
 
-fn main() {
-    println!("{:?} months in a year", 12);
-    println!("{1:?} {0:?} is the {actor:?} name","Slater","Christian", actor="actor's");
+fn main(){
 
-    println!("Now {:?} will print!",Structure(7));
-    println!("Now {:?} will print!",Deep(Structure(3)));
+    let name = "Mehrad";
+    let age = 26;
+    let mehrad = Person{name,age};
+    println!("{:?}",mehrad);
 
 }
